@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post 'auth/login', to: 'authentication#login'
   post 'auth/signup', to: 'authentication#signup'
 
-  resources :articles, only: [:index, :show]
+  resources :articles, only: %i[index show]
 end
