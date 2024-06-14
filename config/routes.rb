@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   post 'auth/login', to: 'authentication#login'
   post 'auth/signup', to: 'authentication#signup'
+
+  resources :articles, only: [:index, :show]
 end
