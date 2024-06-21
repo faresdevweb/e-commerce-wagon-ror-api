@@ -1,3 +1,5 @@
 class Article < ApplicationRecord
     belongs_to :category, optional: true
-end
+    has_many :reviews, dependent: :destroy
+  end
+  
