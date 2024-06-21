@@ -12,4 +12,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
   resources :articles, only: %i[index show]
+
+  resource :cart, only: [:show] do
+    post 'add_item', to: 'carts#add_item'
+    delete 'remove_item/:id', to: 'carts#remove_item', as: 'remove_item'
+  end
 end
