@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   post 'auth/signup', to: 'authentication#signup'
 
   resources :categories, only: [:index, :show]
-  resources :articles, only: %i[index show]
+  resources :articles, only: %i[index show] do
+    resources :reviews, only: %i[index]
+  end
+
+  resources :reviews, only: %i[create destroy]
 
   resource :cart, only: [:show] do
     post 'add_item', to: 'carts#add_item'
